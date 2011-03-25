@@ -1,5 +1,0 @@
-Diagramme de la base de données : 	DBDesigner
-Diagramme de classe 		:	PowerDesigner
-Diagramme de séquence		:	Argo UML
-Documents divers		:	Libre Office
-Description d'interface		:	Balsamiq Mockups

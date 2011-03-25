@@ -1,3 +1,0 @@
-- Gestion de la mise en forme des questions !!! => pas d'intérêt pour l'instant
-- Y a-t-il plusieurs thèmes possible pour une question ? => 1 seul thème par question
-- Stagiaires : pas de différences de traitement entre eux ? => destinataire des résulats différe selon stagiaire externe / interne
