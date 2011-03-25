@@ -2,13 +2,12 @@ package dal;
 
 import java.sql.Connection;
 
-public class DalFactory implements IDal
-{
+public class DalFactory implements IDal {
 
 	private Connection _cnx;
-	
-	public DalFactory(ConnectionProvider pCprovider){
-		switch(pCprovider){
+
+	public DalFactory(ConnectionProvider pCprovider) {
+		switch (pCprovider) {
 		case sqlserver:
 			_cnx = CnxSqlServer.OpenCnx();
 			break;
@@ -21,6 +20,5 @@ public class DalFactory implements IDal
 	public IDal getConnexion() {
 		return (IDal) _cnx;
 	}
-	
 
 }
