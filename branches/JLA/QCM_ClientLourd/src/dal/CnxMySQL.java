@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class CnxMySQL {
+public class CnxMySQL implements IDal {
 	private static Connection cnx;
 
 	public static Connection OpenCnx() {
@@ -29,5 +29,10 @@ public class CnxMySQL {
 			cnx.close();
 			cnx = null;
 		}
+	}
+
+	@Override
+	public IDal getDalFactory(ConnectionProvider pCprovider) {
+		return (IDal) cnx;
 	}
 }

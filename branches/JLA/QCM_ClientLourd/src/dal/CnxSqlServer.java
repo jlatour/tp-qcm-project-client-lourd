@@ -6,11 +6,23 @@ import java.sql.SQLException;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
-public class CnxSqlServer {
+/**
+ * <b>Identification SQL Server</b>
+ * <br />
+ * <i>Rappel : Pour créer un utilisateur lambda habilité 
+ * à la connection sur cette base :
+ * - Aller dans Sécurité (au 1er niveau, juste après base de données)
+ * - Connexions => Nouvelle connexion (décocher les trois cases après le mot de passe,
+ * et préciser la base par défaut).
+ * - Utiliser ce nouvel utilisateur pour la nouvelle base.</i>
+ * @author jo
+ * 
+ */
+public class CnxSqlServer implements IDal {
 
 	private static Connection cnx;
 
-	public static Connection OpenCnx() {
+	public static IDal OpenCnx() {
 
 		if (cnx == null) {
 			try {
@@ -19,18 +31,19 @@ public class CnxSqlServer {
 				DriverManager.registerDriver(new SQLServerDriver());
 
 				cnx = DriverManager
-						.getConnection("jdbc:sqlserver://localhost;databaseName=TPJ2se;"
-								+ "integratedSecurity=false;user=dbo:password=");
+						.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QCM_Project;user=qcm;password=gonzo");
 
-			} catch (ClassNotFoundException e) {
+			}
+			catch (ClassNotFoundException e) {
 				e.printStackTrace();
 
-			} catch (SQLException e) {
+			}
+			catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 
-		return cnx;
+		return (IDal) cnx;
 	}
 
 	public static void closeCnx() throws SQLException {
@@ -38,6 +51,11 @@ public class CnxSqlServer {
 			cnx.close();
 			cnx = null;
 		}
+	}
+
+	@Override
+	public IDal getDalFactory(ConnectionProvider pCprovider) {
+		return (IDal) cnx;
 	}
 
 }

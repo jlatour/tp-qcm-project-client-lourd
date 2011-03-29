@@ -1,24 +1,19 @@
 package dal;
 
-import java.sql.Connection;
 
-public class DalFactory implements IDal {
+public class DalFactory {
 
-	private Connection _cnx;
+	private static IDal _cnx;
 
-	public DalFactory(ConnectionProvider pCprovider) {
-		switch (pCprovider) {
-		case sqlserver:
-			_cnx = CnxSqlServer.OpenCnx();
-			break;
-		case mysql:
-			_cnx = CnxMySQL.OpenCnx();
-		}
-	}
-
-	@Override
-	public IDal getConnexion() {
-		return (IDal) _cnx;
+	public static IDal getDalFactory(ConnectionProvider pCprovider) {
+			switch (pCprovider) {
+			case sqlserver:
+				_cnx = new CnxSqlServer();
+				break;
+			case mysql:
+				_cnx = new CnxMySQL();
+			}
+			return _cnx;
 	}
 
 }

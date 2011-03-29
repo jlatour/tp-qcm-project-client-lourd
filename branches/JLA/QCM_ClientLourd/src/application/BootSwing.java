@@ -1,9 +1,15 @@
 package application;
 
+import java.sql.SQLException;
+
 import controleurs.CtrlRacine;
+import dal.ConnectionProvider;
+import dal.DalFactory;
+import dal.IDal;
+import dal.SqlQuestion;
 
 public class BootSwing {
-
+	
 	/**
 	 * Lanceur de l'application
 	 * 
@@ -14,7 +20,14 @@ public class BootSwing {
 	 */
 	public static void main(String[] args) {
 		CtrlRacine.getInstance();
-		// IDal c = new DalFactory(ConnectionProvider.mysql);
+		
+		try {
+			SqlQuestion.chargerQuestions();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
