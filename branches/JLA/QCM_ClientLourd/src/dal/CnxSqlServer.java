@@ -22,7 +22,7 @@ public class CnxSqlServer implements IDal {
 
 	private static Connection cnx;
 
-	public static IDal OpenCnx() {
+	public static Connection OpenCnx() {
 
 		if (cnx == null) {
 			try {
@@ -43,7 +43,7 @@ public class CnxSqlServer implements IDal {
 			}
 		}
 
-		return (IDal) cnx;
+		return cnx;
 	}
 
 	public static void closeCnx() throws SQLException {
