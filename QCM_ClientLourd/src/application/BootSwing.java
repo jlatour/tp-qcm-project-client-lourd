@@ -1,12 +1,6 @@
 package application;
 
-import java.sql.SQLException;
-
 import controleurs.CtrlRacine;
-import dal.ConnectionProvider;
-import dal.DalFactory;
-import dal.IDal;
-import dal.SqlQuestion;
 
 public class BootSwing {
 	
@@ -20,13 +14,7 @@ public class BootSwing {
 	 */
 	public static void main(String[] args) {
 		CtrlRacine.getInstance();
-		
-		try {
-			SqlQuestion.chargerQuestions();
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 		
 	}
 
