@@ -1,6 +1,7 @@
 package dal;
 
+
 public interface IDal {
 
-	public IDal getConnexion();
+	public IDal getDalFactory(ConnectionProvider pCprovider);
 }
