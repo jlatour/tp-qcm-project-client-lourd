@@ -1,11 +1,12 @@
-package modeles;
 /***********************************************************************
  * 
-Module:  Section.java
+ * Module:  Section.java
  * Author:  fcourtet
  * Purpose: Defines the Class Section
  ***********************************************************************/
+package modeles;
 
+import java.util.*;
 
 /** Description d'une section contenu dans UN test. */
 public class Section {
