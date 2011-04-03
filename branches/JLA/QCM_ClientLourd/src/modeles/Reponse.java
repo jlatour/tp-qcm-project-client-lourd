@@ -1,12 +1,13 @@
-package modeles;
-
 /***********************************************************************
  * Module:  Reponse.java
  * Author:  fcourtet
  * Purpose: Defines the Class Reponse
  ***********************************************************************/
+package modeles;
 
-/** 
+import java.util.*;
+
+/**
  * Description d'une réponse possible à une question.
  * 
  */
@@ -19,6 +20,14 @@ public class Reponse {
 		this.numero = pNumero;
 		this.libelle = pLibelle;
 		this.bonneReponse = pBonneReponse;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public Boolean getBonneReponse() {
+		return bonneReponse;
 	}
 
 }

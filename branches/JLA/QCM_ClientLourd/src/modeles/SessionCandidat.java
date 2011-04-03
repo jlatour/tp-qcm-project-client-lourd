@@ -1,10 +1,11 @@
-package modeles;
 /***********************************************************************
 
  * Module:  SessionCandidat.java
  * Author:  fcourtet
  * Purpose: Defines the Class SessionCandidat
  ***********************************************************************/
+
+package modeles;
 
 import java.util.*;
 

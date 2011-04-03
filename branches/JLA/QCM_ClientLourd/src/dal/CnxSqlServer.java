@@ -7,18 +7,17 @@ import java.sql.SQLException;
 import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
 /**
- * <b>Identification SQL Server</b>
- * <br />
- * <i>Rappel : Pour créer un utilisateur lambda habilité 
- * à la connection sur cette base :
- * - Aller dans Sécurité (au 1er niveau, juste après base de données)
- * - Connexions => Nouvelle connexion (décocher les trois cases après le mot de passe,
- * et préciser la base par défaut).
- * - Utiliser ce nouvel utilisateur pour la nouvelle base.</i>
+ * <b>Identification SQL Server</b> <br />
+ * <i>Rappel : Pour créer un utilisateur lambda habilité à la connection sur
+ * cette base : - Aller dans Sécurité (au 1er niveau, juste après base de
+ * données) - Connexions => Nouvelle connexion (décocher les trois cases après
+ * le mot de passe, et préciser la base par défaut). - Utiliser ce nouvel
+ * utilisateur pour la nouvelle base.</i>
+ * 
  * @author jo
  * 
  */
-public class CnxSqlServer implements IDal {
+public class CnxSqlServer {
 
 	private static Connection cnx;
 
@@ -51,11 +50,6 @@ public class CnxSqlServer implements IDal {
 			cnx.close();
 			cnx = null;
 		}
-	}
-
-	@Override
-	public IDal getDalFactory(ConnectionProvider pCprovider) {
-		return (IDal) cnx;
 	}
 
 }

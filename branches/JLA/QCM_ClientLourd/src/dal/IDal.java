@@ -1,7 +1,11 @@
 package dal;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 
 public interface IDal {
 
-	public IDal getDalFactory(ConnectionProvider pCprovider);
+	public Connection OpenCnx();
+	public void closeCnx() throws SQLException;
 }

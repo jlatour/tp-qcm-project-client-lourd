@@ -3,16 +3,16 @@ package dal;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Vector;
 
 import modeles.Reponse;
 
 public class SqlReponse {
 
-	public static ArrayList<Reponse> chargerReponsesParCodeQuestion(int pCodeQuestion) throws SQLException{
-		ArrayList<Reponse> lr = null;
+	public static Vector<Reponse> chargerReponsesParCodeQuestion(int pCodeQuestion) throws SQLException{
+		Vector<Reponse> lr = null;
 		String sql = "{call chargerReponsesParQuestion(?)}";
-		lr = new ArrayList<Reponse>();
+		lr = new Vector<Reponse>();
 		CallableStatement statement = CnxSqlServer.OpenCnx().prepareCall(sql);
 		statement.setInt(1, pCodeQuestion);
 		if (statement.execute()) {

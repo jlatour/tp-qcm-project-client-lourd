@@ -1,10 +1,11 @@
-package modeles;
 /***********************************************************************
  * 
  * Module:  Examen.java
  * Author:  fcourtet
  * Purpose: Defines the Class Examen
  ***********************************************************************/
+
+package modeles;
 
 import java.util.*;
 
