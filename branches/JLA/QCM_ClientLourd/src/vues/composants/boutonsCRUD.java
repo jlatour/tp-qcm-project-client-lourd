@@ -18,7 +18,6 @@ public class boutonsCRUD extends JPanel {
 	private JButton btnOK;
 	private JButton btnSUPPR;
 
-	private ActionListener crudEventHandler;
 	private GridLayout lay;
 
 	public boutonsCRUD() {
@@ -33,12 +32,6 @@ public class boutonsCRUD extends JPanel {
 		add(getBtnMINUS());
 		add(getBtnOK());
 		add(getBtnSUPPR());
-
-		crudEventHandler = new BtnCrudEventHandler();
-		getBtnADD().addActionListener(crudEventHandler);
-		getBtnMINUS().addActionListener(crudEventHandler);
-		getBtnOK().addActionListener(crudEventHandler);
-		getBtnSUPPR().addActionListener(crudEventHandler);
 	}
 
 	public JButton getBtnADD() {
@@ -76,14 +69,18 @@ public class boutonsCRUD extends JPanel {
 		return btnOK;
 	}
 
-	public enum CRUD_STATE {
-		ADD, MINUS, OK, SUPPR, NEUTRE
+	public enum CRUD_CONTEXT {
+		QUESTION, REPONSE
 	}
-
+	
+	public enum CRUD_ACTION {
+		ADD, REMOVE, CONFIRM, CANCEL
+	}
+	
 	public void setActionSUPPR(){
 		getBtnADD().setEnabled(true);
-		getBtnMINUS().setEnabled(false);
-		getBtnSUPPR().setEnabled(true);
+		getBtnMINUS().setEnabled(true);
+		getBtnSUPPR().setEnabled(false);
 		getBtnOK().setEnabled(false);
 	}
 	

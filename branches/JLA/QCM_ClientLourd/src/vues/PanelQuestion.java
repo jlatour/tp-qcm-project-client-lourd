@@ -6,8 +6,6 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -21,7 +19,8 @@ import javax.swing.border.TitledBorder;
 
 import vues.composants.boutonsCRUD;
 import vues.composants.tableauReponses;
-import vues.composants.boutonsCRUD.CRUD_STATE;
+import vues.composants.boutonsCRUD.CRUD_ACTION;
+import vues.composants.boutonsCRUD.CRUD_CONTEXT;
 import vues.evenements.BtnAddThemeEventHandler;
 import vues.evenements.BtnCrudEventHandler;
 import vues.evenements.ListQuestionsEvent;
@@ -224,7 +223,10 @@ public class PanelQuestion extends JPanel {
 		if (boutonsCRUD_WEST == null) {
 			boutonsCRUD_WEST = new boutonsCRUD();
 			boutonsCRUD_WEST.setPreferredSize(new Dimension(128, 32));
-			
+			boutonsCRUD_WEST.getBtnADD().addActionListener(new BtnCrudEventHandler(CRUD_CONTEXT.QUESTION, CRUD_ACTION.ADD));
+			boutonsCRUD_WEST.getBtnSUPPR().addActionListener(new BtnCrudEventHandler(CRUD_CONTEXT.QUESTION, CRUD_ACTION.REMOVE));
+			boutonsCRUD_WEST.getBtnOK().addActionListener(new BtnCrudEventHandler(CRUD_CONTEXT.QUESTION, CRUD_ACTION.CONFIRM));
+			boutonsCRUD_WEST.getBtnOK().addActionListener(new BtnCrudEventHandler(CRUD_CONTEXT.QUESTION, CRUD_ACTION.REMOVE));
 		}
 		return boutonsCRUD_WEST;
 	}
@@ -245,6 +247,7 @@ public class PanelQuestion extends JPanel {
 			boutonsCRUD_.setSize(new Dimension(128, 32));
 			boutonsCRUD_.setPreferredSize(new Dimension(128, 32));
 			boutonsCRUD_.setMinimumSize(new Dimension(128, 32));
+			
 		}
 		return boutonsCRUD_;
 	}
